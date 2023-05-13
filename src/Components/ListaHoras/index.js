@@ -7,6 +7,8 @@ function ListaHoras() {
   return (
     <div className={styles.lista}>
         <CardHoras cidade={'Paris'}/>
+        <CardHoras cidade={'Houston'}/>
+        <CardHoras cidade={'São Paulo'}/>
     </div>
   )
 }
