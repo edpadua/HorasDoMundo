@@ -9,6 +9,14 @@
     border-radius: 8px;
 }
 
+@media (max-width: 767px) {
+    .card{
+       
+        width: 80%;
+       
+    }
+}
+
 .button_remove{
     background-color: transparent!important;
     color: var(--branco)!important;

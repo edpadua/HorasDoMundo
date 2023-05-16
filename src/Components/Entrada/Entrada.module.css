@@ -7,6 +7,14 @@
     display: flex;
 }
 
+@media (max-width: 767px) {
+    .form_adicionar{
+        
+        width: 80%;
+        
+    }
+}
+
 .form_group_adicionar{
     display: flex;
     width: 100%;
