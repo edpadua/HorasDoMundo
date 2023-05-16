@@ -6,63 +6,61 @@ import Clock from 'react-live-clock';
 
 import { useEffect, useState } from "react";
 
-import axios from 'axios';
+import { Button, Toast } from 'react-bootstrap';
 
-function CardHoras({ cidade }) {
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+function CardHoras({ cidade, index, removeHorario }) {
 
     const [localData, setLocalData] = useState();
 
     const [timezone, setTimeZone] = useState('US/Pacific')
 
+    const [show, setShow] = useState(false);
 
+    const cityTimezones = require('city-timezones');
 
+    console.log("cidade ",cidade)
 
+    const cityLookup = cityTimezones.lookupViaCity(cidade)
+
+    console.log("cidades ",cityLookup)
+    
     useEffect(() => {
-
-        const getLocalData = async (url) => {
-
-            const options = {
-                method: 'GET',
-                url: url,
-                params: { q: cidade },
-                headers: {
-                    'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
-                    'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
-                }
-            };
-
-            try {
-                const response = await axios.request(options);
-                console.log("location1", response.data.location);
-                setLocalData(response.data);
-                setTimeZone(response.data.location.tz_id)
-            } catch (error) {
-                console.error(error);
-            }
-
-
+        
+        if(cityLookup[0]==null){
+            setShow(true)
         }
 
+      }, [setShow]);
+    
 
-        const Url = 'https://weatherapi-com.p.rapidapi.com/current.json';
-        console.log(Url);
-        getLocalData(Url);
-        
-
-    }, [setLocalData,localData, setTimeZone, timezone]);
-
-
-    return (
+    if(cityLookup[0]!=null)
+        return (
         <div className={styles.card}>
-            <h2>{localData ?(localData.location.name):("")}</h2>
-            <h3>Hora local: <Clock format={'HH:mm:ss'} ticking={true} timezone={timezone} /></h3>
+            <h2>{cityLookup[0].city}, {cityLookup[0].iso3}</h2>
+            <h3>Hora local: <Clock format={'HH:mm:ss'} ticking={true} timezone={cityLookup[0].timezone} /></h3>
             <div>
-               <h3>Temperatura: {localData ?(localData.current.temp_c):(0)}&deg; C</h3>    
-            </div>
-            <div>
-               <h3>Tempo: {localData ?(localData.current.condition.text):("")}</h3>    
+                <Button variant="outline-danger" onClick={() => removeHorario(index)}>Remove</Button>
             </div>
         </div>
+    )
+    else
+    return(
+        
+        <Toast onClose={() => setShow(false)} show={show} delay={3000}>
+          <Toast.Header>
+            <img
+              src="holder.js/20x20?text=%20"
+              className="rounded me-2"
+              alt=""
+            />
+           
+          </Toast.Header>
+          <Toast.Body>{cidade} não está na lista !</Toast.Body>
+        </Toast>
+
     )
 }
 
