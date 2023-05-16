@@ -11,7 +11,7 @@ import { Button, Toast } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-function CardHoras({ cidade, index, removeHorario }) {
+function CardHoras({ horario, index, removeHorario }) {
 
     const [localData, setLocalData] = useState();
 
@@ -19,34 +19,31 @@ function CardHoras({ cidade, index, removeHorario }) {
 
     const [show, setShow] = useState(false);
 
-    const cityTimezones = require('city-timezones');
-
-    console.log("cidade ",cidade)
-
-    const cityLookup = cityTimezones.lookupViaCity(cidade)
-
-    console.log("cidades ",cityLookup)
     
-    useEffect(() => {
+    
+   { /**useEffect(() => {
         
-        if(cityLookup[0]==null){
+        if(horario[0]==null){
             setShow(true)
         }
 
-      }, [setShow]);
+      }, [setShow]); **/}
     
 
-    if(cityLookup[0]!=null)
+    
         return (
         <div className={styles.card}>
-            <h2>{cityLookup[0].city}, {cityLookup[0].iso3}</h2>
-            <h3>Hora local: <Clock format={'HH:mm:ss'} ticking={true} timezone={cityLookup[0].timezone} /></h3>
+            {console.log("horario",horario)}
+            <h2>{horario.cidade}, {horario.pais}</h2>
+            <h3>Hora local: <Clock format={'HH:mm:ss'} ticking={true} timezone={horario.timezone} /></h3>
             <div className={styles.btn_container}>
                 <Button className={styles.button_remove} onClick={() => removeHorario(index)}>Remove</Button>
             </div>
         </div>
     )
-    else
+        }
+    export default CardHoras
+    {/**else
     return(
         
         <Toast onClose={() => setShow(false)} show={show} delay={3000}>
@@ -62,6 +59,6 @@ function CardHoras({ cidade, index, removeHorario }) {
         </Toast>
 
     )
-}
+}**/}
 
-export default CardHoras
+

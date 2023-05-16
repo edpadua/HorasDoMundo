@@ -8,17 +8,31 @@ import { useState } from "react";
 
 function ListaHoras() {
 
+    const cityTimezones = require('city-timezones');
+
+    
+
     const [horarios, setHorarios] = useState([
         {
             cidade: "Paris",
+            pais: "França",
+            timezone: "Europe/Paris"
         }
     ]);
 
     const addHorario = cidade => {
+        console.log("cidade ",cidade)
+
+        const cityLookup = cityTimezones.lookupViaCity(cidade)
+        var newHorarios = horarios
+
+        console.log("cityLookup ",cityLookup)
         console.log("cidade", cidade)
-        const newHorarios = [...horarios, { cidade: cidade }];
-        console.log("newHorarios", newHorarios)
-        setHorarios(newHorarios);
+        cityLookup.map((local, index) => (
+            newHorarios = [...newHorarios, { cidade: local.city, pais: local.iso3, timezone: local.timezone }]
+           
+        ))
+        setHorarios(newHorarios)
     };
 
 
@@ -34,11 +48,12 @@ function ListaHoras() {
     return (
         <>
             <Entrada addHorario={addHorario} />
+            { console.log("Horarios", horarios)}
             <div className={styles.lista}>
                
 
                 {horarios.map((horario, index) => (
-                    <CardHoras cidade={horario.cidade} index={index} removeHorario={removeHorario}/>
+                    <CardHoras horario={horario} index={index} removeHorario={removeHorario}/>
                 ))}
             </div>
         </>
