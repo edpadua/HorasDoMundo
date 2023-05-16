@@ -41,8 +41,8 @@ function CardHoras({ cidade, index, removeHorario }) {
         <div className={styles.card}>
             <h2>{cityLookup[0].city}, {cityLookup[0].iso3}</h2>
             <h3>Hora local: <Clock format={'HH:mm:ss'} ticking={true} timezone={cityLookup[0].timezone} /></h3>
-            <div>
-                <Button variant="outline-danger" onClick={() => removeHorario(index)}>Remove</Button>
+            <div className={styles.btn_container}>
+                <Button className={styles.button_remove} onClick={() => removeHorario(index)}>Remove</Button>
             </div>
         </div>
     )

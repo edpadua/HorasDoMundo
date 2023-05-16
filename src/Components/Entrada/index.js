@@ -24,7 +24,7 @@ function Entrada({addHorario}) {
         <Form className={styles.form_adicionar} onSubmit={handleSubmit}>
             <Form.Group className={styles.form_group_adicionar}>
                 
-                <Form.Control type="text" className="input" value={value} onChange={e => setValue(e.target.value)} placeholder="Adicionar novo horário" />
+                <Form.Control type="text" className="input" value={value} onChange={e => setValue(e.target.value)} placeholder="Adicionar novo local" />
             </Form.Group>
             <Button className={styles.button_add} type="submit">
                 Adicionar

@@ -1,9 +1,28 @@
 .card{
-    background-color: #e7e7e7;
+    background-color: var(--azul-principal);
+    color:var(--branco);
     margin-bottom: 30px;
     width: 40%;
     padding: 30px;
     margin-left: auto;
     margin-right: auto;
-
+    border-radius: 8px;
 }
+
+.button_remove{
+    background-color: transparent!important;
+    color: var(--branco)!important;
+    border: solid 1px var(--branco)!important;
+}
+
+
+.button_remove:hover{
+    background-color: none;
+    color: var(--azul-hover)!important;
+    border: solid 1px var(--azul-hover)!important;
+}
+
+.btn_container{
+    padding-top: 20px;
+}
+

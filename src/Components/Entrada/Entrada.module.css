@@ -1,7 +1,23 @@
 .form_adicionar{
     margin-bottom: 30px;
     width: 40%;
-    padding: 30px;
+    padding-top: 100px;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+}
+
+.form_group_adicionar{
+    display: flex;
+    width: 100%;
+}
+
+.button_add{
+    background-color: var(--azul-principal);
+    border: none;
+}
+
+
+.button_add:hover{
+    background-color: var(--azul-hover);
 }
