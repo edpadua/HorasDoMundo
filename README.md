@@ -1,6 +1,47 @@
-#About
+# Horas do Mundo
 
-# Getting Started with Create React App
+<h1>
+    <a href="horas-do-mundo.vercel.app/"><img src="public/horasdomundo-capture.gif"></a>
+</h1>
+
+# Summary
+
+- [About](#about)
+- [Demo](#-demo)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [License](#license)
+- [Contact](#contact)
+ 
+## About
+
+This project is an application that lists timetables for different cities around the world. The user types the name of the city and it is added to this list, showing the time in each location simultaneously. In companies with teams allocated in several countries, this type of functionality is very useful. The list of cities is obtained by the City Timezones library, which converts the name of the city typed by the user into the respective timezone. Each time corresponding to a timezone is obtained by the React Live Clock library. Some Bootstrap components for input field are also used.
+
+### :desktop_computer: Desktop design
+
+![image](https://github.com/edpadua/HorasDoMundo/assets/4975360/70ac0cfe-bf1c-402c-8de5-5803fc413689)
+
+### :iphone: Tablets design
+
+![image](https://github.com/edpadua/HorasDoMundo/assets/4975360/f5cb2659-8d7a-4e69-9296-4f61ed17c413)
+
+### :iphone: Mobile design
+
+<img src="https://github.com/edpadua/HorasDoMundo/assets/4975360/9bc805f1-1f9e-4dd0-979e-12dfbba423c8" style="width: 50%;">
+
+
+### [🌐 Demo](horas-do-mundo.vercel.app)
+
+### Technologies
+
+- [ReactJS](https://reactjs.org)
+- [Create React App](https://github.com/facebook/create-react-app)
+- [React Live Clock](https://www.npmjs.com/package/react-live-clock)
+- [City Timezones](https://www.npmjs.com/package/city-timezones)
+- [Bootstrap](https://react-bootstrap.github.io/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+
+## Setup
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -70,3 +111,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+
+## Contact
+
+Eduardo de Pádua: ed.padua@gmail.com
+
+Project Link: [https://github.com/edpadua/HorasDoMundo/](https://github.com/edpadua/HorasDoMundo) 
+
+
+
+
+
